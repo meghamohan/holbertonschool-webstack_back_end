@@ -1,4 +1,4 @@
-#!/usr/bin/python4
+#!/usr/bin/python3
 """
 testcases for base class
 """
@@ -10,7 +10,7 @@ from models.base_model import BaseModel
 
 class TestBaseModel(unittest.TestCase):
     """ testcases for basemodel class """
-    def init(self):
+    def setUp(self):
         """ initialize """
         self.model = BaseModel()
 
@@ -25,7 +25,6 @@ class TestBaseModel(unittest.TestCase):
     def testId(self):
         """ test id attribute """
         self.assertIsInstance(self.model.id, str)
-        self.assertEqual(self.model.id, str(uuid.uuid4(self.model.id)))
         self.assertIsNotNone(self.model.id)
 
     def testCreatedAt(self):
@@ -37,5 +36,7 @@ class TestBaseModel(unittest.TestCase):
         """ test updated_at attribute """
         self.assertIsInstance(self.model.updated_at, datetime)
         self.assertIsNotNone(self.model.updated_at)
+
+
 if __name__ == '__main__':
     unittest.main()
