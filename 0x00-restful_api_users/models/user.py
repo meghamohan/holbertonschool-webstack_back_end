@@ -60,6 +60,7 @@ class User(BaseModel):
                             self.id,
                             self.email,
                             self.display_name())
+        return retStr
 
     def to_dict(self):
         """ returns a serialized user instance """
