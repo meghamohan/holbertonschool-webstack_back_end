@@ -72,6 +72,18 @@ class ModelTests(unittest.TestCase):
         self.model.last_name = 'mohan'
         self.assertEqual(self.model.display_name(), 'megha mohan')
 
+    def testToDict(self):
+        """ test to_dict attribute """
+        dateTime = "%Y-%m-%d %H:%M:%S"
+        usrStr = {'id': self.model.id, 'email': 'megha@mohan.com',
+                  'first_name': 'Megha',
+                  'last_name': 'Mohan',
+                  'created_at': self.model.created_at.strftime(dateTime),
+                  'updated_at': self.model.created_at.strftime(dateTime)}
+        self.model.email = "megha@mohan.com"
+        self.model.first_name = "Megha"
+        self.model.last_name = "Mohan"
+        self.assertEqual(usrStr, self.model.to_dict())
 
 if __name__ == '__main__':
     unittest.main()
