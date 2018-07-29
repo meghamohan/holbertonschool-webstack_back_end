@@ -4,15 +4,20 @@ base model class
 """
 import uuid
 from datetime import datetime
+from sqlalchemy import Integer, String, DateTime, Column
+from sqlalchemy.ext.declarative import declarative_base
 
+
+Base = declarative_base()
 
 class BaseModel:
     """
     base model class for other classes
     """
-    id = None
-    created_at = None
-    updates_at = None
+    id = Column(String(60), unique=True, nullable=False,
+                primary_key=True, default=str(uuid.uuid4()))
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    updates_at = Column(DateTime, nullable=False, default=datetime.utcnow)
 
     def __init__(self):
         """ initializing basemodel """

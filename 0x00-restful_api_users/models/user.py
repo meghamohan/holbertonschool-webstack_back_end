@@ -2,19 +2,20 @@
 """
 user class
 """
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
 from sqlalchemy import Integer, String, Float, Column
 from datetime import datetime
 import uuid
 import hashlib
 
 
-class User(BaseModel):
+class User(BaseModel, Base):
     """ user class """
-    email = None
-    first_name = None
-    last_name = None
-    _password = None
+    __tablename__ = 'users'
+    email = Column(String(128), nullable=False)
+    first_name = Column(String(128), nullable=True)
+    last_name = Column(String(128), nullable=True)
+    _password = Column(String(128), nullable=False)
 
     def display_name(self):
         """ display user details """
