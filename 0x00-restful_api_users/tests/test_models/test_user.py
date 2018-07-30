@@ -61,6 +61,14 @@ class ModelTests(unittest.TestCase):
         self.assertEqual(self.model.password, "bf709005906087dc1256bb4449d8774d")
         self.assertIsInstance(self.model.password, str)
 
+    def testIsValidFn(self):
+        """test is_alid function"""
+        self.model.password = "MeghaMohan"
+        self.assertTrue(self.model.is_valid_password('MeghaMohan'))
+        self.assertFalse(self.model.is_valid_password(29))
+        self.assertFalse(self.model.is_valid_password(None))
+        self.assertFalse(self.model.is_valid_password(['hi']))
+
     def testDsiplayName(self):
         """ test display name property """
         self.model.first_name = self.model.last_name = self.model.email = None

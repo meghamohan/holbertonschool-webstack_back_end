@@ -19,7 +19,7 @@ db_engine = create_engine(
                     os.environ.get('HBNB_YELP_MYSQL_HOST'),
                     os.environ.get('HBNB_YELP_MYSQL_DB')))
 
-if os.getenv("HBNB_YELP_ENV") == "yelp_test":
+if os.getenv("HBNB_YELP_MYSQL_DB") == "hbtn_yelp_test":
     Base.metadata.drop_all(bind=db_engine)
 Base.metadata.create_all(db_engine)
 db_session = scoped_session(sessionmaker(bind=db_engine,
