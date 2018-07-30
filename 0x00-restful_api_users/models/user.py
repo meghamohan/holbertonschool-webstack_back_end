@@ -19,9 +19,9 @@ class User(BaseModel, Base):
 
     def display_name(self):
         """ display user details """
-        if self.email == self.first_name == self.last_name == None:
+        if self.email == self.first_name == self.last_name is None:
             return ''
-        elif self.email is not None and (self.first_name == self.last_name == None):
+        elif self.email and (self.first_name == self.last_name is None):
             return self.email
         elif self.first_name is not None and self.last_name is None:
             return self.first_name
