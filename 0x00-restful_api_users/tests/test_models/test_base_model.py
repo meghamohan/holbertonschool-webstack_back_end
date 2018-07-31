@@ -26,6 +26,8 @@ class TestBaseModel(unittest.TestCase):
         """ test id attribute """
         self.assertIsInstance(self.model.id, str)
         self.assertIsNotNone(self.model.id)
+        self.assertEqual(self.model.id, \
+                    str(uuid.UUID(self.model.id, version=4)))
 
     def testCreatedAt(self):
         """ test created_at attribute """
