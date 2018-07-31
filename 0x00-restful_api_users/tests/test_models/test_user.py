@@ -69,14 +69,26 @@ class ModelTests(unittest.TestCase):
         self.assertFalse(self.model.is_valid_password(None))
         self.assertFalse(self.model.is_valid_password(['hi']))
 
-    def testDsiplayName(self):
+    def testDsiplayName1(self):
         """ test display name property """
         self.model.first_name = self.model.last_name = self.model.email = None
         self.assertEqual(self.model.display_name(), '')
+    def testDsiplayName2(self):
+        """ test display name property """
         self.model.email = 'megha@mohan.com'
         self.assertEqual(self.model.display_name(), 'megha@mohan.com')
+    def testDsiplayName3(self):
+        """ test display name property """
         self.model.first_name = 'megha'
         self.assertEqual(self.model.display_name(), 'megha')
+    def testDsiplayName4(self):
+        """ test display name property """
+        self.model.last_name = 'mohan'
+        self.assertEqual(self.model.display_name(), 'mohan')
+    def testDsiplayName5(self):
+        """ test display name property """
+        self.model.first_name = 'megha'
+        self.model.email = 'megha@mohan.com'
         self.model.last_name = 'mohan'
         self.assertEqual(self.model.display_name(), 'megha mohan')
 
@@ -93,27 +105,40 @@ class ModelTests(unittest.TestCase):
         self.model.last_name = "Mohan"
         self.assertEqual(usrStr, self.model.to_dict())
 
-    def testStr(self):
+    def testStr1(self):
         """ test str function """
         strResponse = '[User] ' + self.model.id + ' - None - '
         self.assertEqual(str(self.model), strResponse)
+    def testStr2(self):
+        """ test str function """
         self.model.email = 'megha@mohan.com'
         strResponse = '[User] ' + self.model.id + \
                         ' - megha@mohan.com - megha@mohan.com'
         self.assertEqual(str(self.model), strResponse)
-        self.model.last_name = 'Megha'
-        strResponse = '[User] ' + self.model.id + \
-                        ' - megha@mohan.com - Megha'
+    def testStr3(self):
+        """ test str function """
         self.model.first_name = None
         self.model.last_name = 'Mohan'
+        self.model.email = 'megha@mohan.com'
         strResponse = '[User] ' + self.model.id + \
                         ' - megha@mohan.com - Mohan'
         self.assertEqual(str(self.model), strResponse)
+    def testStr3(self):
+        """ test str function """
         self.model.first_name = 'Megha'
+        self.model.last_name = None
+        self.model.email = 'megha@mohan.com'
+        strResponse = '[User] ' + self.model.id + \
+                        ' - megha@mohan.com - Megha'
+        self.assertEqual(str(self.model), strResponse)
+    def testStr5(self):
+        """ test str function """
+        self.model.first_name = 'Megha'
+        self.model.last_name = 'Mohan'
+        self.model.email = 'megha@mohan.com'
         strResponse = '[User] ' + self.model.id + \
                         ' - megha@mohan.com - Megha Mohan'
         self.assertEqual(str(self.model), strResponse)
         
-
 if __name__ == '__main__':
     unittest.main()
