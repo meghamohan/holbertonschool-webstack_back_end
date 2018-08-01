@@ -14,8 +14,8 @@ class BaseModel:
     """
     base model class for other classes
     """
-    id = Column(String(60), unique=True, nullable=False,
-                primary_key=True, default=str(uuid.uuid4()))
+    id = Column(String(60), nullable=False, primary_key=True, \
+                default=str(uuid.uuid4()))
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updates_at = Column(DateTime, nullable=False, default=datetime.utcnow)
 

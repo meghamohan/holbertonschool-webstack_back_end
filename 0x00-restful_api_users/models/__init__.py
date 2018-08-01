@@ -26,7 +26,6 @@ dbengine = create_engine(
                     os.getenv('HBNB_YELP_MYSQL_HOST'),
                     os.getenv('HBNB_YELP_MYSQL_DB')))
 
-"""if config['database'] == "hbtn_yelp_test":"""
 if os.getenv('HBNB_YELP_ENV') == 'test':
     Base.metadata.drop_all(bind=db_engine)
 Base.metadata.create_all(db_engine)

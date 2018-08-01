@@ -47,7 +47,6 @@ class User(BaseModel, Base):
     def is_valid_password(self, pwd):
         """ to check if the pwd is valid or not """
         if type(pwd) is not str or self._password is None:
-            self._password = None
             return False
         pwd = hashlib.md5(bytes(pwd, encoding='utf8')).hexdigest()
         if pwd == self._password:

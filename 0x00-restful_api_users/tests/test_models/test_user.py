@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/uyfsr/bin/python3
 """
 test cases for user class
 """
