@@ -20,6 +20,7 @@ def cisfun():
     app.url_map.strict_slashes = False
     return "C is fun!"
 
+
 if __name__ == "__main__":
     h = os.getenv('HBNB_API_HOST')
     p = int(os.getenv('HBNB_API_PORT'))
