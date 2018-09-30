@@ -14,13 +14,13 @@ p = int(os.getenv('HBNB_API_PORT'))
 def hbntn():
     """ / method """
     app.url_map.strict_slashes = False
-    return 'Holberton School'
+    return "Holberton School"
 
 @app.route('/c')
 def cisfun():
     """ /c method """
     app.url_map.strict_slashes = False
-    return 'C is fun!'
+    return "C is fun!"
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(host=h, port=p)
