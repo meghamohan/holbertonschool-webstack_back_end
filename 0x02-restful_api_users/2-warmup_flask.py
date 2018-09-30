@@ -6,8 +6,6 @@ from flask import Flask
 import os
 
 app = Flask(__name__)
-h = os.getenv('HBNB_API_HOST')
-p = int(os.getenv('HBNB_API_PORT'))
 
 
 @app.route('/')
@@ -23,4 +21,6 @@ def cisfun():
     return "C is fun!"
 
 if __name__ == "__main__":
+    h = os.getenv('HBNB_API_HOST')
+    p = int(os.getenv('HBNB_API_PORT'))
     app.run(host=h, port=p)
