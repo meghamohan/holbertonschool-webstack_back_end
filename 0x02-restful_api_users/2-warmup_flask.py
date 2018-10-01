@@ -14,6 +14,7 @@ def hbntn():
     app.url_map.strict_slashes = False
     return "Holberton School"
 
+
 @app.route('/c')
 def cisfun():
     """ /c method """
