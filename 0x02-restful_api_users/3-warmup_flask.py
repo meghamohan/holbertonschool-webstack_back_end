@@ -18,6 +18,7 @@ def index():
     }
     return jsonify(data)
 
+
 if __name__ == "__main__":
     h = os.getenv('HBNB_API_HOST')
     p = int(os.getenv('HBNB_API_PORT'))
