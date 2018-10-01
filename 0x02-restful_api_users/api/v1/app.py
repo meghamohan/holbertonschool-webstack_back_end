@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.register_blueprint(app_views)
 
 if __name__ == '__main__':
+    app.url_map.strict_slashes = False
     h = os.getenv('HBNB_API_HOST')
     p = int(os.getenv('HBNB_API_PORT'))
     app.run(host=h, port=p)
